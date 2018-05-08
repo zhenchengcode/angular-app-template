@@ -27,3 +27,24 @@ nav a:hover {
 nav a.active {
   color: #039be5;
 }
+
+
+.navcontainer {
+    position: relative;
+    height: 25px;
+    border-top: #000000 1px solid;
+    border-bottom: #000000 1px solid;
+}
+ul .accents {
+    list-style-type: none;
+}
+ul.accents li {
+    display: inline-block;
+    margin-left: 5px;
+}
+ul.accents li#first {
+    margin-left: 10px;
+}
+ul.accents li#last {
+    margin: 1px 0 0 15px;
+}
