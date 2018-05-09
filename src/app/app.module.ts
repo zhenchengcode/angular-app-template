@@ -15,6 +15,10 @@ import { HeroesComponent }      from './heroes/heroes.component';
 import { HeroSearchComponent }  from './hero-search/hero-search.component';
 import { MessagesComponent }    from './messages/messages.component';
 import { DescriptionComponent } from './description/description.component';
+import { TokenComponent } from './token/token.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { AlertModule } from 'ngx-bootstrap';
+
 
 @NgModule({
   imports: [
@@ -22,6 +26,8 @@ import { DescriptionComponent } from './description/description.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule.forRoot(),
+    // AlertModule.forRoot(),
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
@@ -37,7 +43,10 @@ import { DescriptionComponent } from './description/description.component';
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    TokenComponent,
+
+
   ],
   bootstrap: [ AppComponent ]
 })
