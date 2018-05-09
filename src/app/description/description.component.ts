@@ -9,10 +9,11 @@ import { Token } from './token'
 export class DescriptionComponent implements OnInit {
 	token:Token = {
 		token_text: 'orange',
+    token_type: 'unlabeled',
 		token_start: 0,
     token_end: 5,
 		token_labels: ['color'],
-		token_selected_label: 'color'
+		token_selected_label: 'color',
 	}
 	
   description:Description = {
@@ -22,7 +23,7 @@ export class DescriptionComponent implements OnInit {
   } 
   constructor() { }
 
-  /* Convert the description into tokens */
+  /* Convert the description into tokens, render all the */
   // function parse_description(){
   //
   // }
