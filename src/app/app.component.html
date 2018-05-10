@@ -51,12 +51,5 @@
     <!--<option data-tokens="frosting">Sugar, Spice and all things nice</option>-->
 <!--</select>-->
 
-<mat-form-field>
-    <mat-select [(ngModel)]="selected_item">
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-            {{ food.viewValue }}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
 
 

@@ -1,11 +1,16 @@
 <!--<h2>{{ description.item_id }} Details</h2>-->
-<div><span>description: </span><h1>{{description.content}}</h1></div>
-<div><span>token: </span>{{token.token_text}}</div>
-<!--<link href = "~@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">-->
-<mat-form-field>
-    <mat-select [(ngModel)]="selected_item">
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-            {{ food.viewValue }}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
+
+<div>
+    <div>
+        <span >description: </span><h1 style="line-height:200px">{{description.content}}</h1>
+    </div>
+    <!--<span>token: </span>{{token.token_text}}-->
+    <mat-form-field>
+        <mat-select style="font-size:32px" class="absolute" [(ngModel)]="selected_item">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{ food.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
