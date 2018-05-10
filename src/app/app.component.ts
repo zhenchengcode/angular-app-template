@@ -13,4 +13,5 @@ export class AppComponent {
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'}
   ];
+  selected_item = this.foods[1].value;
 }
