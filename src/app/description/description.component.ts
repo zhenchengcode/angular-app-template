@@ -22,6 +22,13 @@ export class DescriptionComponent implements OnInit {
   // 	content: 'orange truck carries orange',
  	//   input_tokens: [this.token.token_text]
   // }
+
+  foods = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
+  selected_item = this.foods[1].value;
   constructor() { }
 
   /* Convert the description into tokens, render all the */
