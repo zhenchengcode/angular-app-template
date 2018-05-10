@@ -8,4 +8,9 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 })
 export class AppComponent {
   title = 'Token Annotator';
+  foods = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
 }

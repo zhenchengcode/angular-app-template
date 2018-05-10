@@ -18,6 +18,8 @@ import { DescriptionComponent } from './description/description.component';
 import { TokenComponent } from './token/token.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { AlertModule } from 'ngx-bootstrap';
+import { MatSelectModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     HttpClientModule,
     NgbModule.forRoot(),
+    MatSelectModule,
+    BrowserAnimationsModule,
     // AlertModule.forRoot(),
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
@@ -48,6 +52,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+  exports: [
+    MatSelectModule,
+  ]
 })
 export class AppModule { }
