@@ -33,6 +33,12 @@ export class DescriptionComponent implements OnInit {
   selected_item = this.foods[1].value;
   constructor() { }
 
+  segs = [
+    'apple',
+    'pear',
+    'pineapple',
+  ];
+
   /* Convert the description into tokens, render all the */
   // function parse_description(){
   //

@@ -2,7 +2,10 @@
 
 <div>
     <div>
-        <span >description: </span><h1 style="line-height:200px">{{description.content}}</h1>
+        <span >description: </span>
+        <h1 style="line-height:200px" *ngFor="let seg of segs">
+            {{seg}}
+        </h1>
     </div>
     <!--<span>token: </span>{{token.token_text}}-->
     <mat-form-field>

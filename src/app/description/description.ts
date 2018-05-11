@@ -36,23 +36,21 @@ export class Description {
   parse_description (content:string, tokens:Array<Token>) {
 
     // element is tuple: [string, number] 0 is normal text_segment, 1-n are class ids of highlight_token
-    let text_segment: Array<string[]> = [];
+    let text_segment: Array<[string, number]> = [];
 
     let normal_start = 0;
     let token_id = 1;
-    for (let token in tokens) {
-      token_start = token.token_start;
-      token_end = token.token_end;
+    for (let token of tokens) {
+      let token_start = token.token_start;
+      let token_end = token.token_end;
 
-      let normal_token = [];
+      // normal segment
       if (normal_start < token_start) {
-        normal_token = [content.substring(normal_start, token_start), 0];
+        text_segment.push([content.substring(normal_start, token_start), 0]);
       }
-      if (normal_token.length > 0) {
-        text_segment.push(normal_token);
-      }
-      highlight_token = [content.substring(token_start, token_end+1), token_id];
-      text_segment.push(highlight_token);
+
+      // highlight segment
+      text_segment.push([content.substring(token_start, token_end+1), token_id]);
       token_id = token_id + 1;
       normal_start = token_end + 1;
     }
