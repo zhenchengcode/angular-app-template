@@ -3,7 +3,7 @@
 <div>
     <div>
         <span >description: </span>
-        <h1 style="line-height:100px" *ngFor="let seg of segs" [ngClass]="{'highlightText': seg.highlight>0}">
+        <h1 style="line-height:100px; float:left; padding-left:60px;" *ngFor="let seg of segs" [ngClass]="{'highlightText': seg.highlight>0}">
             {{seg.seg_text}}
         </h1>
     </div>
