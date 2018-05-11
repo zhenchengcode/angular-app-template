@@ -16,7 +16,7 @@ export class DescriptionComponent implements OnInit {
 		token_selected_label: 'color',
 	}
 
-	description = new Description('1', 'orange truck carries orange', ['orange'])
+	description = new Description('1', 'orange truck carries orange', ['orange', 'carries'])
 
 
   // description:Description = {
@@ -30,21 +30,21 @@ export class DescriptionComponent implements OnInit {
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'}
   ];
+
   selected_item = this.foods[1].value;
-  constructor() { }
+  constructor() { console.log('abc'); };
 
-  segs = [
-    {value:'apple', id:0},
-    {value:'pear', id:1},
-    {value:'pineapple', id:2},
-  ];
 
-  /* Convert the description into tokens, render all the */
-  // function parse_description(){
-  //
-  // }
+  segs = this.description.parse_description(this.description.content, this.description.tokens);
+  // segs = [
+  //   {value:'apple', id:0},
+  //   {value:'pear', id:1},
+  //   {value:'pineapple', id:2},
+  // ];
+
 
   ngOnInit() {
+    console.log(this.description.tokens)
   }
 
 }

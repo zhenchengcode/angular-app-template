@@ -12,9 +12,11 @@ export class Description {
 	/* Find those tokens from input that show up in this description */
   find_token (content:string, input_tokens:string[], label_candidates:string[]) {
 
+    let ret_tokens = [];
     for (let token of input_tokens) {
       let token_replaced_underscore = token.split("_").join(" ");
-      let pattern = new RegExp('\b'+token_replaced_underscore+'\b');
+      console.log(token_replaced_underscore)
+      let pattern = new RegExp(token_replaced_underscore);
       let match = pattern.exec(content);
       if (match) {
         let matched_token:Token = {
@@ -25,18 +27,20 @@ export class Description {
           token_labels: label_candidates,
           token_selected_label: label_candidates[0],
         }
-        this.tokens.push(matched_token);
+        ret_tokens.push(matched_token);
       }
     }
+    return ret_tokens;
 
   }
 
   /* Parse description into text segments (normal segments and tokens)
   *  assign each highlighted text an id */
   parse_description (content:string, tokens:Array<Token>) {
+    console.log(tokens)
 
     // element is tuple: [string, number] 0 is normal text_segment, 1-n are class ids of highlight_token
-    let text_segment: Array<[string, number]> = [];
+    let text_segment: Array<{}> = [];
 
     let normal_start = 0;
     let token_id = 1;
@@ -46,19 +50,35 @@ export class Description {
 
       // normal segment
       if (normal_start < token_start) {
-        text_segment.push([content.substring(normal_start, token_start), 0]);
+        text_segment.push(
+            {
+              seg_text:content.substring(normal_start, token_start),
+              highlight:0
+            }
+          );
       }
 
       // highlight segment
-      text_segment.push([content.substring(token_start, token_end+1), token_id]);
+      text_segment.push(
+        {
+          seg_text:content.substring(token_start, token_end),
+          highlight:token_id
+        }
+      );
       token_id = token_id + 1;
       normal_start = token_end + 1;
     }
 
     if (normal_start < content.length) { // last character is not in highlight_token
-      text_segment.push([content.substring(normal_start, content.length), 0])
+      text_segment.push(
+        {
+          seg_text:content.substring(normal_start, content.length),
+          highlight:0
+        }
+      )
     }
 
+    console.log(text_segment)
     return text_segment;
 
   }
@@ -67,7 +87,7 @@ export class Description {
   constructor(item_id:string, content:string, input_tokens:string[]) {
     this.item_id = item_id;
     this.content = content;
-    this.find_token(content, input_tokens, ['color']);
+    this.tokens = this.find_token(content, input_tokens, ['color']);
   }
 
 

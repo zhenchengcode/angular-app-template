@@ -3,8 +3,8 @@
 <div>
     <div>
         <span >description: </span>
-        <h1 style="line-height:100px" *ngFor="let seg of segs" [ngClass]="(seg.id>0)?'highlightText':'normalText'">
-            {{seg.value}}
+        <h1 style="line-height:100px" *ngFor="let seg of segs" [ngClass]="{'highlightText': seg.highlight>0}">
+            {{seg.seg_text}}
         </h1>
     </div>
     <!--<span>token: </span>{{token.token_text}}-->
