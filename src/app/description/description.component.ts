@@ -34,9 +34,9 @@ export class DescriptionComponent implements OnInit {
   constructor() { }
 
   segs = [
-    'apple',
-    'pear',
-    'pineapple',
+    {value:'apple', id:0},
+    {value:'pear', id:1},
+    {value:'pineapple', id:2},
   ];
 
   /* Convert the description into tokens, render all the */
