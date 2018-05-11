@@ -17,6 +17,8 @@ export class DescriptionComponent implements OnInit {
 	}
 
 	description = new Description('1', 'orange truck carries orange', ['orange'])
+
+
   // description:Description = {
   // 	item_id: 1,
   // 	content: 'orange truck carries orange',
