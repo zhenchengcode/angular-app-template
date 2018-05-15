@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { Description } from './description';
 import { Token } from './token';
 @Component({
@@ -6,7 +6,12 @@ import { Token } from './token';
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.css'],
 })
-export class DescriptionComponent implements OnInit {
+export class DescriptionComponent implements OnInit, AfterViewInit {
+  @ViewChild("tref", {read: ElementRef}) tref: ElementRef;
+  ngAfterViewInit(): void {
+    console.log(this.tref.nativeElement.offsetLeft); // this.ref is undefined
+  }
+
 	token:Token = {
 		token_text: 'orange',
     token_type: 'unlabeled',
@@ -26,9 +31,9 @@ export class DescriptionComponent implements OnInit {
   // }
 
   foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
+    {value: 'capacity-0', viewValue: 'Capacity'},
+    {value: 'color-1', viewValue: 'Color'},
+    {value: 'weight-2', viewValue: 'Weight'}
   ];
 
   selected_item = this.foods[1].value;
@@ -41,6 +46,7 @@ export class DescriptionComponent implements OnInit {
   //   {value:'pear', id:1},
   //   {value:'pineapple', id:2},
   // ];
+
 
 
   ngOnInit() {
