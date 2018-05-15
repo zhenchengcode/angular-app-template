@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild, ElementRef, ViewChildren} from '@angular/core';
 import { Description } from './description';
 import { Token } from './token';
 @Component({
@@ -8,8 +8,10 @@ import { Token } from './token';
 })
 export class DescriptionComponent implements OnInit, AfterViewInit {
   @ViewChild("tref", {read: ElementRef}) tref: ElementRef;
+  @ViewChildren('seg_dom') seg_doms;
   ngAfterViewInit(): void {
-    console.log(this.tref.nativeElement.offsetLeft); // this.ref is undefined
+    console.log(this.tref.nativeElement); //
+    console.log(this.seg_doms.toArray().filter(x => x.nativeElement.className.includes('highlightText')).map(x => x.nativeElement));
   }
 
 	token:Token = {
