@@ -1,11 +1,11 @@
 <div id="token_style">
 
-    <h1 #token_dom style="line-height:32px; float:left; padding-left:10px;" [ngClass]="{'highlightText': displayToken.token_labels.length>0}">
+    <h1 #token_dom style="line-height:32px; padding-left:10px; " [ngClass]="{'highlightText': displayToken.token_labels.length>0}">
         {{displayToken.token_text}}
     </h1>
 
     <!-- ng for each label list render a drop down -->
-    <mat-form-field class="absolute" *ngIf="displayToken.token_labels.length>0">
+    <mat-form-field class="drop-down" *ngIf="displayToken.token_labels.length>0">
         <!-- each drop down will have position dynamically assigned-->
         <mat-select style="font-size:32px" [(ngModel)]="selected_item">
             <mat-option *ngFor="let attribute of attributes" [value]="attribute.value">

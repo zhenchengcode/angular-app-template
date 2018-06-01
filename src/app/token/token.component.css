@@ -1,9 +1,11 @@
 .highlightText {
     background: yellow;
+    display:block;
 }
 
 #token_style {
-    display: flex;
+    display: block;
     /*vertical-align: middle;*/
     align-items: center;
+    height: 50%;
 }
