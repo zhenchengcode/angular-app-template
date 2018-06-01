@@ -3,20 +3,17 @@
 <div>
     <div #tref>
         <span >description: </span>
-        <h1 #seg_dom style="line-height:120px; float:left; padding-left:10px;" *ngFor="let seg of segs" [ngClass]="{'highlightText': seg.highlight>0}">
-            {{seg.seg_text}}
+        <h1 #seg_dom style="line-height:32px; float:left; padding-left:10px;" *ngFor="let token_seg of token_segs" [ngClass]="{'highlightText': token_seg.token_labels.length>0}">
+            {{token_seg.token_text}}
         </h1>
     </div>
     <!--<span>token: </span>{{token.token_text}}-->
 
-    <!-- ng for each label list render a drop down -->
-    <mat-form-field class="absolute">
-        <!-- each drop down will have position dynamically assigned-->
-        <mat-select style="font-size:32px" [(ngModel)]="selected_item">
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{ food.viewValue }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+
 </div>
+
+<ul *ngFor="let displayToken of displayTokens">
+    <app-token [displayToken]="displayToken"></app-token>
+</ul>
+
 

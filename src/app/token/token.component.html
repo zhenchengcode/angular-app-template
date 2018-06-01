@@ -1,6 +1,19 @@
-<p>
-  token works!
-</p>
+<div>
+
+    <h1 #token_dom style="line-height:32px; float:left; padding-left:10px;" [ngClass]="{'highlightText': token.token_labels.length>0}">
+        {{token.token_text}}
+    </h1>
+
+    <!-- ng for each label list render a drop down -->
+    <mat-form-field class="absolute">
+        <!-- each drop down will have position dynamically assigned-->
+        <mat-select style="font-size:32px" [(ngModel)]="selected_item">
+            <mat-option *ngFor="let attribute of attributes" [value]="attribute.value">
+                {{ attribute.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
 
 
 

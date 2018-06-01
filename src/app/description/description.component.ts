@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit, ViewChild, ElementRef, ViewChildren} from '@angular/core';
 import { Description } from './description';
-import { Token } from './token';
+import { Token } from '../token/token';
 @Component({
   selector: 'app-description',
   templateUrl: './description.component.html',
@@ -16,7 +16,7 @@ export class DescriptionComponent implements OnInit, AfterViewInit {
 
 	token:Token = {
 		token_text: 'orange',
-    token_type: 'unlabeled',
+    // token_type: 'unlabeled',
 		token_start: 0,
     token_end: 5,
 		token_labels: ['color'],
@@ -32,17 +32,11 @@ export class DescriptionComponent implements OnInit, AfterViewInit {
  	//   input_tokens: [this.token.token_text]
   // }
 
-  foods = [
-    {value: 'capacity-0', viewValue: 'Capacity'},
-    {value: 'color-1', viewValue: 'Color'},
-    {value: 'weight-2', viewValue: 'Weight'}
-  ];
-
-  selected_item = this.foods[1].value;
-  constructor() { console.log('abc'); };
 
 
-  segs = this.description.parse_description(this.description.content, this.description.tokens);
+
+  token_segs = this.description.parse_description(this.description.content, this.description.tokens);
+  displayTokens = token_segs
   // segs = [
   //   {value:'apple', id:0},
   //   {value:'pear', id:1},

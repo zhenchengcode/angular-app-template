@@ -1,4 +1,4 @@
-import { Token } from './token'
+import { Token } from '../token/token';
 export class Description {
 
 	item_id: string;
@@ -21,7 +21,7 @@ export class Description {
       if (match) {
         let matched_token:Token = {
           token_text: token_replaced_underscore,
-          token_type: 'unlabeled',
+          // token_type: 'unlabeled',
           token_start: match.index,
           token_end: match.index + token_replaced_underscore.length,
           token_labels: label_candidates,
@@ -37,10 +37,10 @@ export class Description {
   /* Parse description into text segments (normal segments and tokens)
   *  assign each highlighted text an id */
   parse_description (content:string, tokens:Array<Token>) {
-    console.log(tokens)
+    // console.log(tokens)
 
     // element is tuple: [string, number] 0 is normal text_segment, 1-n are class ids of highlight_token
-    let text_segment: Array<{}> = [];
+    let token_segments: Array<Token> = [];
 
     let normal_start = 0;
     let token_id = 1;
@@ -50,36 +50,50 @@ export class Description {
 
       // normal segment
       if (normal_start < token_start) {
-        text_segment.push(
-            {
-              seg_text:content.substring(normal_start, token_start),
-              highlight:0
-            }
-          );
+
+        token_segments.push(
+
+          {
+            token_text: content.substring(normal_start, token_start),
+            token_start: normal_start,
+            token_end: token_start,
+            token_labels: [],
+            token_selected_label: ''
+          }
+
+        );
       }
 
       // highlight segment
-      text_segment.push(
+      token_segments.push(
         {
-          seg_text:content.substring(token_start, token_end),
-          highlight:token_id
+          token_text: content.substring(token_start, token_end),
+          token_start: token_start,
+          token_end: token_end,
+          token_labels: token.token_labels,
+          token_selected_label: token.token_selected_label
         }
+
       );
       token_id = token_id + 1;
       normal_start = token_end + 1;
     }
 
     if (normal_start < content.length) { // last character is not in highlight_token
-      text_segment.push(
+      token_segments.push(
         {
-          seg_text:content.substring(normal_start, content.length),
-          highlight:0
+          token_text: content.substring(normal_start, content.length),
+          token_start: normal_start,
+          token_end: content.length,
+          token_labels: [],
+          token_selected_label: ''
         }
+
       )
     }
 
-    console.log(text_segment)
-    return text_segment;
+    console.log(token_segments)
+    return token_segments;
 
   }
 
