@@ -10,7 +10,7 @@ import { Token } from './token';
   styleUrls: ['./token.component.css']
 })
 export class TokenComponent implements OnInit {
-  @Input displayToken: Token;
+  @Input() displayToken: Token;
 
   attributes = [
     {value: 'capacity-0', viewValue: 'Capacity'},
@@ -19,9 +19,7 @@ export class TokenComponent implements OnInit {
   ];
 
   selected_item = this.attributes[1].value;
-  constructor() { console.log('abc'); };
 
-  constructor() { }
 
   ngOnInit() {
   }

@@ -36,7 +36,7 @@ export class DescriptionComponent implements OnInit, AfterViewInit {
 
 
   token_segs = this.description.parse_description(this.description.content, this.description.tokens);
-  displayTokens = token_segs
+  displayTokens = this.token_segs;
   // segs = [
   //   {value:'apple', id:0},
   //   {value:'pear', id:1},
