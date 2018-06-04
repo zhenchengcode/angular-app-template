@@ -23,7 +23,7 @@ export class DescriptionComponent implements OnInit, AfterViewInit {
 		token_selected_label: 'color',
 	}
 
-	description = new Description('1', 'orange truck carries orange and another zip for a zebra', ['orange', 'carries', 'zip', 'zebra'])
+	description = new Description('1', 'orange truck carries orange and another zip for a zebra', ['orange truck', 'zip', 'zebra'])
 
 
   // description:Description = {
