@@ -48,3 +48,8 @@ ul.accents li#first {
 ul.accents li#last {
     margin: 1px 0 0 15px;
 }
+
+/* use style in title does not work */
+/*.title-style {*/
+    /*padding-bottom: 40px;*/
+/*}*/
