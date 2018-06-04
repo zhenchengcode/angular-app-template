@@ -12,8 +12,12 @@
 
 <!--</div>-->
 
-<ul *ngFor="let displayToken of displayTokens">
-    <app-token style="float:left;" [displayToken]="displayToken"></app-token>
+
+<ul>
+    <ul *ngFor="let displayToken of displayTokens">
+        <app-token style="float:left;" [displayToken]="displayToken"></app-token>
+    </ul>
 </ul>
+
 
 
