@@ -13,12 +13,12 @@ export class TokenComponent implements OnInit {
   @Input() displayToken: Token;
 
   attributes = [
-    {value: 'capacity-0', viewValue: 'Capacity'},
+    {value: 'capacity-0', viewValue: 'Capacity Blah Blah Blah'},
     {value: 'color-1', viewValue: 'Color'},
     {value: 'weight-2', viewValue: 'Weight'}
   ];
 
-  selected_item = this.attributes[1].value;
+  selected_item = this.attributes[0].value;
 
 
   ngOnInit() {

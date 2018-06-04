@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c37c831-b709-444f-9065-edcffcf80471" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/description/description.component.ts" afterPath="$PROJECT_DIR$/src/app/description/description.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/token/token.component.html" afterPath="$PROJECT_DIR$/src/app/token/token.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/token/token.component.ts" afterPath="$PROJECT_DIR$/src/app/token/token.component.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,8 +20,8 @@
       <file leaf-file-name="description.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/description/description.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="4" />
+            <state relative-caret-position="190">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#app-token#0;n#ul#0;n#ul#0;n#!!top" expanded="true" />
               </folding>
@@ -62,14 +62,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="token.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="token.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/token/token.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="63" lean-forward="false" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
+            <state relative-caret-position="171">
+              <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#mat-select#0;n#mat-form-field#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/src/app/token/token.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+              <caret line="15" column="61" lean-forward="false" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -99,7 +98,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="76">
@@ -159,8 +158,6 @@
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/app/description/description.ts" />
         <option value="$PROJECT_DIR$/src/app/token/token.ts" />
-        <option value="$PROJECT_DIR$/src/app/token/token.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/token/token.component.html" />
         <option value="$PROJECT_DIR$/angular.json" />
         <option value="$PROJECT_DIR$/src/app/description/description.component.css" />
         <option value="$PROJECT_DIR$/src/app/description/description.component.html" />
@@ -169,6 +166,8 @@
         <option value="$PROJECT_DIR$/src/app/app.component.css" />
         <option value="$PROJECT_DIR$/src/app/description/description.component.ts" />
         <option value="$PROJECT_DIR$/src/index.html" />
+        <option value="$PROJECT_DIR$/src/app/token/token.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/token/token.component.html" />
       </list>
     </option>
   </component>
@@ -324,12 +323,12 @@
       <workItem from="1527891977253" duration="920000" />
       <workItem from="1527893010995" duration="1441000" />
       <workItem from="1528134713925" duration="1582000" />
-      <workItem from="1528145113904" duration="1159000" />
+      <workItem from="1528145113904" duration="1731000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57293000" />
+    <option name="totallyTimeSpent" value="57865000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -672,27 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/token/token.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/token/token.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="63" lean-forward="false" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-select#0;n#mat-form-field#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/description/description.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -738,16 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/description/description.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="4" />
-          <folding>
-            <element signature="n#style#0;n#app-token#0;n#ul#0;n#ul#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/description/description.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="463">
@@ -763,6 +731,36 @@
         <state relative-caret-position="76">
           <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/description/description.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#app-token#0;n#ul#0;n#ul#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/token/token.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="61" lean-forward="false" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/token/token.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
