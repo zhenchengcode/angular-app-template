@@ -1,11 +1,13 @@
 .highlightText {
     background: yellow;
-    display:block;
+    /*display:block;*/
+    height: 32px;
 }
 
 #token_style {
-    display: block;
+    /*display: block;*/
     /*vertical-align: middle;*/
     /*align-items: center;*/
-    height: 50%;
+    height: 100px;
+
 }
