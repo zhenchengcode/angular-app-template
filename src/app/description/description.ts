@@ -1,4 +1,5 @@
 import { Token } from '../token/token';
+import {startOf} from "ngx-bootstrap/chronos/utils/start-end-of";
 export class Description {
 
 	item_id: string;
@@ -9,10 +10,23 @@ export class Description {
 	/* Tokens: list of tokens */
 	tokens: Array<Token>;
 
+  /*
+  * Generate a picker id for each token for keyboard short cut */
+  generate_picker_id(token_count) {
+    let picker_id = "";
+    while(token_count>0){
+      token_count = token_count - 1;
+      picker_id = String.fromCharCode(token_count%26 + 65) + picker_id;
+      token_count = token_count/26;
+    }
+    return picker_id;
+  }
+
 	/* Find those tokens from input that show up in this description */
   find_token (content:string, input_tokens:string[], label_candidates:string[]) {
 
     let ret_tokens = [];
+    let token_count = 0;
     for (let token of input_tokens) {
       let token_replaced_underscore = token.split("_").join(" ");
       console.log(token_replaced_underscore)
@@ -26,9 +40,11 @@ export class Description {
           token_end: match.index + token_replaced_underscore.length,
           token_labels: label_candidates,
           token_selected_label: label_candidates[0],
+          token_picker_id: this.generate_picker_id(token_count)
         }
         ret_tokens.push(matched_token);
       }
+      token_count = token_count + 1;
     }
     return ret_tokens;
 
@@ -58,7 +74,8 @@ export class Description {
             token_start: normal_start,
             token_end: token_start,
             token_labels: [],
-            token_selected_label: ''
+            token_selected_label: '',
+            token_picker_id: ''
           }
 
         );
@@ -71,7 +88,8 @@ export class Description {
           token_start: token_start,
           token_end: token_end,
           token_labels: token.token_labels,
-          token_selected_label: token.token_selected_label
+          token_selected_label: token.token_selected_label,
+          token_picker_id: token.token_picker_id
         }
 
       );
@@ -86,7 +104,8 @@ export class Description {
           token_start: normal_start,
           token_end: content.length,
           token_labels: [],
-          token_selected_label: ''
+          token_selected_label: '',
+          token_picker_id: ''
         }
 
       )
@@ -96,6 +115,8 @@ export class Description {
     return token_segments;
 
   }
+
+
 
 
   constructor(item_id:string, content:string, input_tokens:string[]) {
