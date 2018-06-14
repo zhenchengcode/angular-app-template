@@ -21,6 +21,7 @@ export class DescriptionComponent implements OnInit, AfterViewInit {
     token_end: 5,
 		token_labels: ['color'],
 		token_selected_label: 'color',
+    token_picker_id: ''
 	}
 
 	description = new Description('1', 'orange truck carries orange and another zip for a zebra blueberry truck carries melon and another ship for a fish', ['orange truck', 'zip', 'zebra', 'melon', 'ship'])
