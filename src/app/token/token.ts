@@ -11,6 +11,6 @@ export class Token {
 	token_labels: string[]; // labeled=>len(token_labels)==0, unlabeled=>len(token_labels)>0
 	token_selected_label: string;
 
-	token_picker_id: number;
+	token_picker_id: string;
 	constructor(){}
 }
