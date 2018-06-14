@@ -1,7 +1,7 @@
 .highlightText {
     background: yellow;
     /*display:block;*/
-    height: 32px;
+    /*height: 32px;*/
 }
 
 #token_style {
@@ -10,4 +10,9 @@
     /*align-items: center;*/
     height: 100px;
 
+}
+
+
+.mat-form-field-infix {
+    border-top: 0px !important;
 }

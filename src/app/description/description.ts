@@ -16,17 +16,19 @@ export class Description {
     let picker_id = "";
     while(token_count>0){
       token_count = token_count - 1;
-      picker_id = String.fromCharCode(token_count%26 + 65) + picker_id;
-      token_count = token_count/26;
+      picker_id = String.fromCharCode(token_count%26 + 97) + picker_id;
+      token_count = Math.floor(token_count/26);
     }
     return picker_id;
   }
+
 
 	/* Find those tokens from input that show up in this description */
   find_token (content:string, input_tokens:string[], label_candidates:string[]) {
 
     let ret_tokens = [];
-    let token_count = 0;
+    let token_count = 1;
+    let token_picker = 'a';
     for (let token of input_tokens) {
       let token_replaced_underscore = token.split("_").join(" ");
       console.log(token_replaced_underscore)

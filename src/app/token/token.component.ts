@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Description } from '../description/description';
 import { Token } from './token';
 
@@ -7,7 +7,8 @@ import { Token } from './token';
 @Component({
   selector: 'app-token',
   templateUrl: './token.component.html',
-  styleUrls: ['./token.component.css']
+  styleUrls: ['./token.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TokenComponent implements OnInit {
   @Input() displayToken: Token;
