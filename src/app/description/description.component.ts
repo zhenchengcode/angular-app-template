@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild, ElementRef, ViewChildren} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild, ElementRef, ViewChildren, HostListener} from '@angular/core';
 import { Description } from './description';
 import { Token } from '../token/token';
 @Component({
@@ -43,6 +43,19 @@ export class DescriptionComponent implements OnInit, AfterViewInit {
   //   {value:'pear', id:1},
   //   {value:'pineapple', id:2},
   // ];
+
+  eventCounter: number = 1;
+  @HostListener('window:keyup', ['$event']) // selector is the 'app-token', so if there are 10 tokens, showMessage will get called 10 times on single keyup event
+  showMessage(event: KeyboardEvent){
+    console.log('captured')
+    this.eventCounter += 1;
+    console.log('after increase')
+    console.log(this.eventCounter)
+    // if (event.keyCode === 65 && this.eventCounter==1) {
+    //   console.log('Hotkey Test');
+    // }
+  }
+
 
 
 

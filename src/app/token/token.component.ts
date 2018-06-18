@@ -13,7 +13,7 @@ import { Token } from './token';
 })
 export class TokenComponent implements OnInit {
   @Input() displayToken: Token;
-  eventCounter: number = 1;
+
 
   attributes = [
     {value: 'capacity-0', viewValue: 'Capacity Blah Blah Blah'},
@@ -23,22 +23,6 @@ export class TokenComponent implements OnInit {
 
   selected_item = this.attributes[0].value;
 
-  // hotkeys(event){
-  //   if (event.keyCode == 65 && event.keyCode == 65){
-  //     this.showMessage();
-  //   }
-  // }
-
-  @HostListener('window:keyup', ['$event'])
-  showMessage(event: KeyboardEvent){
-    console.log('captured')
-    this.eventCounter += 1;
-    console.log('after increase')
-    console.log(this.eventCounter)
-    // if (event.keyCode === 65 && this.eventCounter==1) {
-    //   console.log('Hotkey Test');
-    // }
-  }
 
 
   ngOnInit() {
