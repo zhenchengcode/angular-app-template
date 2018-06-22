@@ -7,12 +7,12 @@ import { Token } from '../token/token';
   styleUrls: ['./description.component.css'],
 })
 export class DescriptionComponent implements OnInit, AfterViewInit {
-  @ViewChild("tref", {read: ElementRef}) tref: ElementRef;
-  @ViewChildren('seg_dom') seg_doms;
-  ngAfterViewInit(): void {
-    console.log(this.tref.nativeElement); //
-    console.log(this.seg_doms.toArray().filter(x => x.nativeElement.className.includes('highlightText')).map(x => x.nativeElement));
-  }
+  // @ViewChild("tref", {read: ElementRef}) tref: ElementRef;
+  // @ViewChildren('seg_dom') seg_doms;
+  // ngAfterViewInit(): void {
+  //   console.log(this.tref.nativeElement); //
+  //   console.log(this.seg_doms.toArray().filter(x => x.nativeElement.className.includes('highlightText')).map(x => x.nativeElement));
+  // }
 
 	token:Token = {
 		token_text: 'orange',
@@ -45,16 +45,43 @@ export class DescriptionComponent implements OnInit, AfterViewInit {
   // ];
 
   eventCounter: number = 1;
+  prevTime: number = NaN;// last time a key is pressed
+  keyStrokes : [] = [];
   @HostListener('window:keyup', ['$event']) // selector is the 'app-token', so if there are 10 tokens, showMessage will get called 10 times on single keyup event
   showMessage(event: KeyboardEvent){
-    console.log('captured')
+
+    console.log(event.keyCode)
+    console.log(','.charCodeAt(0))
+    // when a special key is pressed, print out keyStrokes
+    console.log(Date.now() - this.prevTime)
+
+    // && (Date.now() - this.prevTime)/1000 > 1
+    if( !isNaN(this.prevTime) && event.keyCode === 13) { // &&  event.keyCode===188
+      console.log(this.keyStrokes);
+      this.prevTime = NaN;
+      this.keyStrokes = [];
+    }
+
+    // fill in an existing keyStrokes array
+    else {
+      this.keyStrokes.push(String.fromCharCode(event.keyCode));
+      this.prevTime = Date.now();
+    }
+
+
+
+    console.log(this.eventCounter);
     this.eventCounter += 1;
-    console.log('after increase')
-    console.log(this.eventCounter)
-    // if (event.keyCode === 65 && this.eventCounter==1) {
-    //   console.log('Hotkey Test');
-    // }
+
   }
+
+  /*
+  * Send keystrokes captured */
+  // @HostListener('window:keyup', ['$event'])
+  // sendKeystrokes(event: KeyboardEvent){
+  //   // currentTime - prevTime > interval, send key strokes, clear this.prevTime and this.keyStrokes
+  //
+  // }
 
 
 
