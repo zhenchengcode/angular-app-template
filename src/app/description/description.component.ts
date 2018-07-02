@@ -6,7 +6,7 @@ import { Token } from '../token/token';
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.css'],
 })
-export class DescriptionComponent implements OnInit, AfterViewInit {
+export class DescriptionComponent implements OnInit {
   // @ViewChild("tref", {read: ElementRef}) tref: ElementRef;
   // @ViewChildren('seg_dom') seg_doms;
   // ngAfterViewInit(): void {
@@ -46,18 +46,35 @@ export class DescriptionComponent implements OnInit, AfterViewInit {
 
   eventCounter: number = 1;
   prevTime: number = NaN;// last time a key is pressed
-  keyStrokes : [] = [];
+  keyStrokes : Array<string> = new Array();
   @HostListener('window:keyup', ['$event']) // selector is the 'app-token', so if there are 10 tokens, showMessage will get called 10 times on single keyup event
   showMessage(event: KeyboardEvent){
 
-    console.log(event.keyCode)
-    console.log(','.charCodeAt(0))
     // when a special key is pressed, print out keyStrokes
-    console.log(Date.now() - this.prevTime)
+    // console.log(Date.now() - this.prevTime)
 
     // && (Date.now() - this.prevTime)/1000 > 1
     if( !isNaN(this.prevTime) && event.keyCode === 13) { // &&  event.keyCode===188
-      console.log(this.keyStrokes);
+      // console.log(this.keyStrokes);
+      let keyStrokes = this.keyStrokes.join('');
+      keyStrokes = keyStrokes.toLowerCase();
+
+      console.log(keyStrokes);
+      let printOuts = document.getElementsByClassName('keyStrokes');
+      console.log(printOuts)
+      for (let printOutIndex in printOuts){
+        console.log(printOutIndex);
+        printOuts[printOutIndex].click();
+      }
+
+      console.log(printOuts);
+      let dropDownElement = document.getElementsByClassName(keyStrokes)[0];
+
+      console.log(dropDownElement)
+      if (dropDownElement!==null && dropDownElement!==undefined) {
+        dropDownElement.click();
+      }
+
       this.prevTime = NaN;
       this.keyStrokes = [];
     }

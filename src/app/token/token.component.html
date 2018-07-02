@@ -10,7 +10,7 @@
     <!-- ng for each label list render a drop down -->
     <mat-form-field *ngIf="displayToken.token_labels.length>0">
         <!-- each drop down will have position dynamically assigned-->
-        <mat-select style="font-size:16px" [(ngModel)]="selected_item">
+        <mat-select class='keyStrokes' id=displayToken.token_picker_id style="font-size:16px" [(ngModel)]="selected_item">
             <mat-option *ngFor="let attribute of attributes" [value]="attribute.value">
                 {{ attribute.viewValue }}
             </mat-option>
