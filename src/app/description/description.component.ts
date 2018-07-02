@@ -56,20 +56,12 @@ export class DescriptionComponent implements OnInit {
     // && (Date.now() - this.prevTime)/1000 > 1
     if( !isNaN(this.prevTime) && event.keyCode === 13) { // &&  event.keyCode===188
       // console.log(this.keyStrokes);
-      let keyStrokes = this.keyStrokes.join('');
+      let keyStrokes:string = this.keyStrokes.join('');
       keyStrokes = keyStrokes.toLowerCase();
 
-      console.log(keyStrokes);
-      let printOuts = document.getElementsByClassName('keyStrokes');
-      console.log(printOuts)
-      for (let printOutIndex in printOuts){
-        console.log(printOutIndex);
-        printOuts[printOutIndex].click();
-      }
-
-      console.log(printOuts);
+      console.log(keyStrokes); // need to put here, after the following loop won't work
       let dropDownElement = document.getElementsByClassName(keyStrokes)[0];
-
+      
       console.log(dropDownElement)
       if (dropDownElement!==null && dropDownElement!==undefined) {
         dropDownElement.click();
