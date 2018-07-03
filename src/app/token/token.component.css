@@ -1,5 +1,6 @@
 .highlightText {
     background: yellow;
+    border-radius: 7px;
     /*display:block;*/
     /*height: 32px;*/
 }

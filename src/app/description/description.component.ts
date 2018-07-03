@@ -35,18 +35,26 @@ export class DescriptionComponent implements OnInit {
   keyStrokes : Array<string> = new Array();
   @HostListener('window:keyup', ['$event']) // selector is the 'app-token', so if there are 10 tokens, showMessage will get called 10 times on single keyup event
   captureKeyStroke(event: KeyboardEvent){
+    console.log(document.activeElement)
 
     if( !isNaN(this.prevTime) && event.keyCode === 13) {
+      console.log(this.keyStrokes)
 
       let keyStrokes:string = this.keyStrokes.join('');
       keyStrokes = keyStrokes.toLowerCase();
 
-      let dropDownElement = document.getElementsByClassName(keyStrokes)[0];
-
-      if (dropDownElement!==null && dropDownElement!==undefined) {
-        dropDownElement.click();
+      /* if keyStrokes contains only '(' and '&': means 'up' and 'down' in dropdown menu */
+      if (keyStrokes.includes('(') || keyStrokes.includes('&')){
+        // document.getElementsByClassName('title')[0].focus();  doesn't change document.activeElment
+        document.activeElement.blur(); // reset document.activeElement
       }
+      else {
+        let dropDownElement = document.getElementsByClassName(keyStrokes)[0];
 
+        if (dropDownElement!==null && dropDownElement!==undefined) {
+          dropDownElement.click();
+        }
+      }
       this.prevTime = NaN;
       this.keyStrokes = [];
     }
