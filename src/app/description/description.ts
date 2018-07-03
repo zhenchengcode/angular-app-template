@@ -28,7 +28,6 @@ export class Description {
 
     let ret_tokens = [];
     let token_count = 1;
-    let token_picker = 'a';
     for (let token of input_tokens) {
       let token_replaced_underscore = token.split("_").join(" ");
       console.log(token_replaced_underscore)
@@ -55,7 +54,6 @@ export class Description {
   /* Parse description into text segments (normal segments and tokens)
   *  assign each highlighted text an id */
   parse_description (content:string, tokens:Array<Token>) {
-    // console.log(tokens)
 
     // element is tuple: [string, number] 0 is normal text_segment, 1-n are class ids of highlight_token
     let token_segments: Array<Token> = [];

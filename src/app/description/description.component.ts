@@ -35,10 +35,8 @@ export class DescriptionComponent implements OnInit {
   keyStrokes : Array<string> = new Array();
   @HostListener('window:keyup', ['$event']) // selector is the 'app-token', so if there are 10 tokens, showMessage will get called 10 times on single keyup event
   captureKeyStroke(event: KeyboardEvent){
-    console.log(document.activeElement)
 
     if( !isNaN(this.prevTime) && event.keyCode === 13) {
-      console.log(this.keyStrokes)
 
       let keyStrokes:string = this.keyStrokes.join('');
       keyStrokes = keyStrokes.toLowerCase();

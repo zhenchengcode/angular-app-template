@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, ViewEncapsulation, HostListener} from '@angular/core';
-import { Description } from '../description/description';
 import { Token } from './token';
 
 
@@ -9,7 +8,6 @@ import { Token } from './token';
   templateUrl: './token.component.html',
   styleUrls: ['./token.component.css'],
   encapsulation: ViewEncapsulation.None,
-  // host: {'(window:keyup)': 'hotkeys($event)'}
 })
 export class TokenComponent implements OnInit {
   @Input() displayToken: Token;
