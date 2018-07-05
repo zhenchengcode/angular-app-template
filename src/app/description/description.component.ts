@@ -8,7 +8,15 @@ import {TokenComponent} from "../token/token.component";
   styleUrls: ['./description.component.css'],
 })
 export class DescriptionComponent implements OnInit {
-  @ViewChildren(TokenComponent) tokenComponents;
+  @ViewChildren(TokenComponent) tokenComponentsQueryList;
+  tokenComponents = undefined;
+
+  /* Initialize children components when view initialized: .results is a Promise function */
+  ngAfterViewInit(): void {
+    this.tokenComponents = this.tokenComponentsQueryList._results;
+  }
+  // tokenComponents = this.tokenComponentsQueryList._results;
+
   // @ViewChild("tref", {read: ElementRef}) tref: ElementRef;
   // @ViewChildren('seg_dom') seg_doms;
   // ngAfterViewInit(): void {
@@ -72,6 +80,13 @@ export class DescriptionComponent implements OnInit {
   /* Serialize the token-label pairs into a JSON object for the back end */
   submitLabels() {
     console.log(this.tokenComponents);
+    for (let componentIndex in this.tokenComponents) {
+      let currComponent = this.tokenComponents[componentIndex];
+      if (currComponent.displayToken.token_labels.length>0) {
+        console.log(currComponent.displayToken['token_text']);
+        console.log(currComponent.selected_item);
+      }
+    }
     // for (let tokenComponentIndex in this.tokenComponents) {
     //   // if (this.tokenComponents[tokenComponentIndex].displayToken.token_labels.length!=0) {
     //   console.log('.........')
