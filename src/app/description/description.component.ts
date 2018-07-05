@@ -1,12 +1,14 @@
 import {AfterViewInit, Component, OnInit, ViewChild, ElementRef, ViewChildren, HostListener} from '@angular/core';
 import { Description } from './description';
 import { Token } from '../token/token';
+import {TokenComponent} from "../token/token.component";
 @Component({
   selector: 'app-description',
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.css'],
 })
 export class DescriptionComponent implements OnInit {
+  @ViewChildren(TokenComponent) tokenComponents;
   // @ViewChild("tref", {read: ElementRef}) tref: ElementRef;
   // @ViewChildren('seg_dom') seg_doms;
   // ngAfterViewInit(): void {
@@ -44,13 +46,13 @@ export class DescriptionComponent implements OnInit {
       /* if keyStrokes contains only '(' and '&': means 'up' and 'down' in dropdown menu */
       if (keyStrokes.includes('(') || keyStrokes.includes('&')){
         // document.getElementsByClassName('title')[0].focus();  doesn't change document.activeElment
-        document.activeElement.blur(); // reset document.activeElement
+        (document.activeElement as HTMLElement).blur(); // reset document.activeElement
       }
       else {
         let dropDownElement = document.getElementsByClassName(keyStrokes)[0];
 
         if (dropDownElement!==null && dropDownElement!==undefined) {
-          dropDownElement.click();
+          (dropDownElement as HTMLElement).click();
         }
       }
       this.prevTime = NaN;
@@ -65,6 +67,19 @@ export class DescriptionComponent implements OnInit {
 
     this.eventCounter += 1;
 
+  }
+
+  /* Serialize the token-label pairs into a JSON object for the back end */
+  submitLabels() {
+    console.log(this.tokenComponents);
+    // for (let tokenComponentIndex in this.tokenComponents) {
+    //   // if (this.tokenComponents[tokenComponentIndex].displayToken.token_labels.length!=0) {
+    //   console.log('.........')
+    //     console.log(this.tokenComponents[tokenComponentIndex].displayToken);
+    //     console.log(this.tokenComponents[tokenComponentIndex].selected_item);
+    //   console.log('.........')
+    //   // }
+    // }
   }
 
 

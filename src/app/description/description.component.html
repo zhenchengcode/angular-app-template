@@ -1,8 +1,14 @@
-<ul>
-    <ul *ngFor="let displayToken of displayTokens">
-        <app-token style="float:left;" [displayToken]="displayToken"></app-token>
+<div>
+    <ul>
+        <ul *ngFor="let displayToken of displayTokens">
+            <app-token style="float:left;" [displayToken]="displayToken"></app-token>
+        </ul>
     </ul>
-</ul>
+</div>
+<div style="display:inline;">
+    <button style="float: left;">Reject</button>
+    <button style="float: right;" (click)="submitLabels()">Submit</button>
+</div>
 
 
 
