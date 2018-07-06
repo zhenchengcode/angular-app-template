@@ -15,14 +15,6 @@ export class DescriptionComponent implements OnInit {
   ngAfterViewInit(): void {
     this.tokenComponents = this.tokenComponentsQueryList._results;
   }
-  // tokenComponents = this.tokenComponentsQueryList._results;
-
-  // @ViewChild("tref", {read: ElementRef}) tref: ElementRef;
-  // @ViewChildren('seg_dom') seg_doms;
-  // ngAfterViewInit(): void {
-  //   console.log(this.tref.nativeElement); //
-  //   console.log(this.seg_doms.toArray().filter(x => x.nativeElement.className.includes('highlightText')).map(x => x.nativeElement));
-  // }
 
 	token:Token = {
 		token_text: 'orange',
@@ -79,7 +71,6 @@ export class DescriptionComponent implements OnInit {
 
   /* Serialize the token-label pairs into a JSON object for the back end */
   submitLabels() {
-    console.log(this.tokenComponents);
     for (let componentIndex in this.tokenComponents) {
       let currComponent = this.tokenComponents[componentIndex];
       if (currComponent.displayToken.token_labels.length>0) {

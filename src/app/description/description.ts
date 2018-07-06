@@ -67,18 +67,53 @@ export class Description {
       // normal segment
       if (normal_start < token_start) {
 
+        let short_segments_from_space = content.substring(normal_start, token_start).split(' ');
         token_segments.push(
-
           {
-            token_text: content.substring(normal_start, token_start),
-            token_start: normal_start,
-            token_end: token_start,
-            token_labels: [],
+            token_text: ' ',
+            token_start:-1,
+            token_end:-1,
+            token_labels:[],
             token_selected_label: '',
             token_picker_id: ''
           }
+        )
+        for (let short_segment of short_segments_from_space) {
 
-        );
+          token_segments.push(
+            {
+              token_text: short_segment,
+              token_start:-1,
+              token_end:-1,
+              token_labels:[],
+              token_selected_label: '',
+              token_picker_id: ''
+            }
+          );
+          token_segments.push(
+            {
+              token_text: ' ',
+              token_start:-1,
+              token_end:-1,
+              token_labels:[],
+              token_selected_label: '',
+              token_picker_id: ''
+            }
+          )
+        }
+
+        // token_segments.push(
+        //
+        //   {
+        //     token_text: content.substring(normal_start, token_start),
+        //     token_start: normal_start,
+        //     token_end: token_start,
+        //     token_labels: [],
+        //     token_selected_label: '',
+        //     token_picker_id: ''
+        //   }
+        //
+        // );
       }
 
       // highlight segment
@@ -111,7 +146,6 @@ export class Description {
       )
     }
 
-    console.log(token_segments)
     return token_segments;
 
   }
